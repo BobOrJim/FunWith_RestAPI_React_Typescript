@@ -1,24 +1,19 @@
 import express from "express";
-import { RoomRoute } from "./routes/roomRoute";
+import { MessageRoute } from "./routes/MessageRoute";
 
 export class HttpService {
   private app: express.Application;
-  private roomRoute: RoomRoute = new RoomRoute();
+  private messageRoute: MessageRoute = new MessageRoute();
 
   constructor() {
-    console.log("HttpService");
     this.app = express();
   }
 
   public setupMiddleware() {
-    console.log("start middleware config");
-
     this.app.use(express.json()); //parsar body till json, jag behöver nu inte try/catch för inkommande data map parse
-    //
-    //this.app.use(express.urlencoded({ extended: true })); //for parsing application/x.ww.form.urlencoded
-    this.app.use("/room", this.roomRoute.router);
 
-    console.log("middleware config done ");
+    //this.app.use(express.urlencoded({ extended: true })); //for parsing application/x.ww.form.urlencoded
+    this.app.use("/api/v1/message", this.messageRoute.router);
   }
 
   public startListening() {
