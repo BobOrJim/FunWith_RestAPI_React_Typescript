@@ -1,11 +1,46 @@
 
 
 
-
-
-
-GET http://localhost:6000/api/v1/getAllMessages HTTP/1.1
+GET http://localhost:6000/api/v1/message HTTP/1.1
 ###
+
+GET http://localhost:6000/api/v1/message/5782c898-c645-4b7e-847f-315772f19b91 HTTP/1.1
+###
+
+GET http://localhost:6000/api/v1/message/2 HTTP/1.1
+###
+
+POST http://localhost:6000/api/v1/message HTTP/1.1
+content-type: application/json
+
+{
+  "user": "asdfasdf janne",
+  "text": "haloj jag var i Sverige, bra väder"
+}
+###
+
+PUT http://localhost:6000/api/v1/message/32e2bf59-ae96-4967-ab05-c7d7f898dbf9 HTTP/1.1
+content-type: application/json
+
+{
+  "user": "Jag har blivit utbytt2",
+  "text": "haloj jag var i Sverige, bra väder"
+}
+###
+DELETE http://localhost:6000/api/v1/message/0c716204-8d0b-4ea1-8d4b-871d74b8b716 HTTP/1.1
+content-type: application/json
+
+{
+  "user": "Jag har blivit utbytt2",
+  "text": "haloj jag var i Sverige, bra väder"
+}
+###
+
+
+
+
+
+
 
 //Fungerar
 GET http://localhost:6000/room/45 HTTP/1.1

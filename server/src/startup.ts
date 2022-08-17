@@ -1,5 +1,4 @@
 import { HttpService } from "./API/HttpService";
-import { Repository } from "./Infrastructure/Repository";
 
 console.log("Server in entrypoint");
 

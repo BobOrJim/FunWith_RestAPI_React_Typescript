@@ -9,10 +9,14 @@ export class HttpService {
     this.app = express();
   }
 
+  //This is the middleware
   public setupMiddleware() {
     this.app.use(express.json()); //parsar body till json, jag behöver nu inte try/catch för inkommande data map parse
 
     //this.app.use(express.urlencoded({ extended: true })); //for parsing application/x.ww.form.urlencoded
+    //här skall min logger in
+    //här skall min validering in
+
     this.app.use("/api/v1/message", this.messageRoute.router);
   }
 

@@ -1,15 +1,15 @@
 import express from "express";
-import { MessageController } from "../controllers/MessageController";
+import { getAllMessages, getMessageById, postMessage, putMessage, deleteMessage } from "../controllers/MessageController";
 
 //A Route can have one or moer controllers
 export class MessageRoute {
-  private messageController: MessageController;
   public router = express.Router();
 
   constructor() {
-    this.messageController = new MessageController();
-    this.router.get("/", this.messageController.getAllMessages);
-    //this.router.get("/:id", this.messageController.getRoomDetails);
-    //this.router.post("/", this.messageController.postRoom);
+    this.router.get("/", getAllMessages);
+    this.router.get("/:id", getMessageById);
+    this.router.post("/", postMessage);
+    this.router.put("/:id", putMessage);
+    this.router.delete("/:id", deleteMessage);
   }
 }
