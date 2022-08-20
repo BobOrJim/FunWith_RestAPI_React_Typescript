@@ -13,9 +13,9 @@ export class HttpService {
   }
 
   public setupMiddleware() {
-    this.app.use(cors);
     this.app.use(express.json()); //parsar body till json, jag behöver nu inte try/catch för inkommande data map parse
     this.app.use(express.urlencoded({ extended: true })); //for parsing application/x.ww.form.urlencoded
+    this.app.use(cors());
     this.app.use(logger);
     this.app.use(isLoggedIn);
     this.app.use("/api/v1/message", this.messageRoute.router);
