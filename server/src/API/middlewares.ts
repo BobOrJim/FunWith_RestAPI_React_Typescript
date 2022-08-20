@@ -3,6 +3,7 @@ import { consoleUnknownObject } from "./utils";
 
 export const isLoggedIn = (req: express.Request, res: express.Response, next: express.NextFunction) => {
   const isLoggedIn = true; // Simulating a session..
+  return;
   if (isLoggedIn) {
     next();
   } else {
