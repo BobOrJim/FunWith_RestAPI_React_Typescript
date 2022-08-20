@@ -1,4 +1,4 @@
-import { HttpService } from "./API/HttpService";
+import { HttpService } from "./api/HttpService";
 
 console.log("Server in entrypoint");
 

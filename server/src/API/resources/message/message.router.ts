@@ -1,6 +1,6 @@
 import express from "express";
-import { getAllMessages, getMessageById, postMessage, putMessage, deleteMessage } from "../controllers/MessageController";
-import { messageSchema } from "../Common/Message";
+import { getAllMessages, getMessageById, postMessage, putMessage, deleteMessage } from "./message.controller";
+import { messageSchema } from "./message.model";
 
 //A Route can have one or moer controllers
 export class MessageRoute {
@@ -15,7 +15,6 @@ export class MessageRoute {
   }
 }
 
-//denna skall jag lägga så den används där body (post)
 const validateMessage = (req: express.Request, res: express.Response, next: express.NextFunction) => {
   const result = messageSchema.validate(req.body);
   if (result.error) {

@@ -1,5 +1,5 @@
-import { Message } from "../../Common/Message";
-import { readStringFromFile, writeStringToFile } from "../../Infrastructure/Repository";
+import { Message } from "./message.model";
+import { readStringFromFile, writeStringToFile } from "../../../infrastructure/Repository";
 import { v4 as uuidv4 } from "uuid";
 
 import type express from "express"; //Jag vill endast avnända typerna, så jag importerar endast dem
@@ -34,8 +34,6 @@ export const getMessageById = async (req: express.Request, res: express.Response
 //post
 export const postMessage = async (req: express.Request, res: express.Response) => {
   let data: string = await readStringFromFile();
-  //check valid body
-
   if (data) {
     let messages: Message[] = JSON.parse(data);
     let newMessage = buildMessage(uuidv4(), req.body.user, req.body.text);
@@ -58,7 +56,7 @@ export const putMessage = async (req: express.Request, res: express.Response) =>
     let messages: Message[] = JSON.parse(data);
     let message = messages.find((m) => m.id == req.params.id);
     if (message) {
-      //replace this message with the new message but keep the id
+      //replaces this message with the new message but keep the id
       const oldId = message.id;
       const index = messages.indexOf(message);
       messages.splice(index, 1);
