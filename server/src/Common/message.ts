@@ -1,3 +1,4 @@
+import Joi from "joi";
 /*
 export class Message {
   public id: string;
@@ -16,3 +17,14 @@ export type Message = {
   user: string;
   text: string;
 };
+
+export type Message2 = {
+  //hmm, fundera krind id
+  user: string;
+  text: string;
+};
+
+export const messageSchema = Joi.object<Message2, true>({
+  user: Joi.string().required(),
+  text: Joi.string().required(),
+}).unknown(true);
