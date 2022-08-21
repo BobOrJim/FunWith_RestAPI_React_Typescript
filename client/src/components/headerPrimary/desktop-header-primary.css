@@ -1,0 +1,16 @@
+.desktop-header-primary {
+  background-color: #10cece;
+  border-bottom: 2px solid black;
+  /*border-left: 2px solid black;*/
+  border-right: 2px solid black;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: var(--desktop-header-primary-height);
+  display: flex;
+  z-index: 100;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}

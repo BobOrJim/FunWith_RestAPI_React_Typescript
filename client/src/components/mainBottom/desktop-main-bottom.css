@@ -1,0 +1,17 @@
+.desktop-main-bottom {
+  background-color: lightsteelblue;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+
+  height: var(--desktop-main-bottom-height);
+  width: calc(100% - var(--desktop-aside-primary-width) - var(--desktop-aside-secondary-width));
+  display: flex;
+  position: fixed;
+  top: calc(100% - var(--desktop-main-bottom-height));
+  bottom: 0;
+  left: calc(var(--desktop-aside-primary-width) + var(--desktop-aside-secondary-width));
+  z-index: 1;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}

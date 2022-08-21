@@ -1,0 +1,7 @@
+.my-global {
+  font-family: "IBM+Plex+Sans", Roboto, Arial; /* ärvs till inre containers */
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

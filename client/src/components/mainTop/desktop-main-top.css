@@ -1,0 +1,22 @@
+.desktop-main-top {
+  top: calc(var(--desktop-header-primary-height) + var(--desktop-header-secondary-height));
+  bottom: var(--desktop-main-bottom-height);
+  left: calc(var(--desktop-aside-primary-width) + var(--desktop-aside-secondary-width));
+  right: 0;
+
+  background-color: lightpink;
+  position: fixed;
+
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}

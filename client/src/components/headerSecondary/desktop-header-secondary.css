@@ -1,0 +1,15 @@
+.desktop-header-secondary {
+  background-color: lightsalmon;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  height: var(--desktop-header-secondary-height);
+  width: calc(100% - var(--desktop-aside-primary-width) - var(--desktop-aside-secondary-width));
+  display: flex;
+  position: fixed;
+  top: var(--desktop-header-primary-height);
+  left: calc(var(--desktop-aside-primary-width) + var(--desktop-aside-secondary-width));
+  z-index: 1;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}

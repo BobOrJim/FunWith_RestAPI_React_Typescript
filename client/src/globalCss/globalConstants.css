@@ -1,0 +1,11 @@
+/* Global constants for lines and colors */
+
+:root {
+  --desktop-aside-primary-width: 100px;
+  --desktop-aside-secondary-width: 100px;
+
+  --desktop-header-primary-height: 100px;
+  --desktop-header-secondary-height: 75px;
+
+  --desktop-main-bottom-height: 150px;
+}

@@ -1,0 +1,19 @@
+.desktop-aside-secondary {
+  background-color: rgb(240, 240, 104);
+  border-right: 2px solid black;
+
+  width: var(--desktop-aside-secondary-width);
+  position: fixed;
+
+  top: calc(var(--desktop-header-primary-height));
+  bottom: 0;
+  left: var(--desktop-aside-primary-width);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  /*  overflow-y: auto;
+  overflow-x: auto;*/
+}

@@ -1,0 +1,35 @@
+.message-container {
+  background-color: #128181;
+  border-radius: 50px;
+  color: #000;
+  font-size: 1rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timestamp {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(231, 157, 157);
+  padding: 0.5rem;
+}
+
+.text {
+  font-size: 1rem;
+  color: rgb(16, 175, 141);
+  padding: 0.5rem;
+}
+
+.sending-user {
+  font-size: 2rem;
+  color: rgb(82, 90, 117);
+  padding: 0.5rem;
+}
