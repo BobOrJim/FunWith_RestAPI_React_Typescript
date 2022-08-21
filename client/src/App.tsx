@@ -1,75 +1,117 @@
 import { useState, useRef, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
-
-import { HeaderPrimary } from "./components/headerPrimary/HeaderPrimary";
-import { HeaderSecondary } from "./components/headerSecondary/HeaderSecondary";
-import { AsidePrimary } from "./components/asidePrimary/AsidePrimary";
-import { AsideSecondary } from "./components/asideSecondary/AsideSecondary";
-import { MainTop } from "./components/mainTop/MainTop";
-import { MainBottom } from "./components/mainBottom/MainBottom";
-import { MessageType } from "./components/message/Message.model";
+import { MessageType, MessageDto } from "./components/message/Message.model";
 import { MessageList } from "./components/messageList/MessageList";
 
 import "./globalCss/globalConstants.css";
 import "./globalCss/globalCss.css";
-import "./css/desktop-aside-primary.css";
-import "./css/desktop-aside-secondary.css";
-import "./css/desktop-header-primary.css";
-import "./css/desktop-header-secondary.css";
-import "./css/desktop-main-bottom.css";
-import "./css/desktop-main-top.css";
+import "./globalCss/desktop-aside-primary.css";
+import "./globalCss/desktop-aside-secondary.css";
+import "./globalCss/desktop-header-primary.css";
+import "./globalCss/desktop-header-secondary.css";
+import "./globalCss/desktop-main-bottom.css";
+import "./globalCss/desktop-main-top.css";
+
+import { getMessagesFromServer, postMessageToServer, deleteMessageFromServer } from "./components/message/Message.api";
+
+let selectedMessagePosition: number = 0;
 
 export const App: React.FC = (): JSX.Element => {
   console.log("App is running");
 
   const [messages, setMessages] = useState<MessageType[]>([]); //Undra om varje run skall få en egen useState, generea dynamiska??
+  const [messageRepositoryChanged, setMessageRepositoryChanged] = useState<boolean>(false);
+  const [editMessage, setEditMessage] = useState<boolean>(false);
+  const [expandMessage, setExpandMessage] = useState<boolean>(false);
   const refMessageText = useRef<HTMLInputElement>(null);
   const refUsername = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {}, [messages]);
+  useEffect(() => {
+    (async () => {
+      const response = await getMessagesFromServer();
+      if (response) {
+        setMessages(response);
+        console.log(response);
+      }
+    })();
+  }, [messageRepositoryChanged]);
 
   function handleAddMessage(): void {
     const messageText = refMessageText.current?.value;
-    if (messageText) {
-      /*
-      messageDto.text = messageText;
-      messageDto.sendingUser = refUsername.current?.value || "NoName";
-      messageDto.destinationRoom = "room test";
-      refMessageText.current.value = "";*/
+    const username = refUsername.current?.value;
+    if (messageText && username) {
+      const newMessage: MessageDto = {
+        text: messageText,
+        user: username,
+      };
+      (async () => {
+        const response = await postMessageToServer(newMessage);
+        if (response) {
+          console.log(response);
+          console.log();
+          setMessageRepositoryChanged(!messageRepositoryChanged);
+        }
+      })();
+      refMessageText.current.value = "";
+      refUsername.current.value = "";
+    }
+  }
+
+  function handleDeleteMessage(id: string): void {
+    if (id) {
+      (async () => {
+        const response = await deleteMessageFromServer(id);
+        if (response) {
+          console.log(response);
+          setMessageRepositoryChanged(!messageRepositoryChanged);
+        }
+      })();
+    }
+  }
+
+  function handleExpandMessage(id: string): void {
+    if (id) {
+      console.log(id);
+      selectedMessagePosition = messages.findIndex((message) => message.id === id);
+      setExpandMessage(!expandMessage);
+      console.log("expading message with id: " + id + " and position: " + selectedMessagePosition);
+    }
+  }
+
+  function handleEditMessage(id: string): void {
+    if (id) {
+      selectedMessagePosition = messages.findIndex((message) => message.id === id);
+      setEditMessage(!editMessage);
+      console.log("editing message with id: " + id);
     }
   }
 
   return (
     <div className="my-global">
       <aside className="desktop-aside-primary">
-        <AsidePrimary />
-        <p>desktop-aside-primary.css</p>
+        {expandMessage && (
+          <div className="desktop-aside-primary-message">
+            <div className="desktop-aside-primary-message-header">
+              <p>{messages[selectedMessagePosition].user}</p>
+            </div>
+            <div className="desktop-aside-primary-message-body">
+              <p>{messages[selectedMessagePosition].text}</p>
+            </div>
+          </div>
+        )}
       </aside>
-      <aside className="desktop-aside-secondary">
-        <AsideSecondary />
-        <p>desktop-aside-secondary.css</p>
-      </aside>
-      <header className="desktop-header-primary">
-        <HeaderPrimary />
-        <p>desktop-header-primary.css</p>
-      </header>
-      <header className="desktop-header-secondary">
-        <HeaderSecondary />
-        <p>desktop-header-secondary.css</p>
-      </header>
+      <aside className="desktop-aside-secondary"></aside>
+      <header className="desktop-header-primary"></header>
+      <header className="desktop-header-secondary"></header>
       <main className="desktop-main-top">
-        <MainTop />
-        <p>desktop-main-top.css</p>
-        <MessageList messages={messages} />
+        <MessageList messages={messages} handleDeleteMessage={handleDeleteMessage} handleExpandMessage={handleExpandMessage} handleEditMessage={handleEditMessage} />
       </main>
       <main className="desktop-main-bottom">
-        <MainBottom />
         <label>
-          Username:
+          Author:
           <input ref={refUsername} type="text" />
         </label>
         <label>
-          Text:
+          Quote:
           <input ref={refMessageText} type="text" />
         </label>
         <button onClick={handleAddMessage}>Send</button>

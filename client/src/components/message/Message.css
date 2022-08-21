@@ -3,9 +3,10 @@
   border-radius: 50px;
   color: #000;
   font-size: 1rem;
-  padding: 3rem;
+  padding: 0.3rem;
   display: flex;
   flex-direction: column;
+  margin: 1rem;
 }
 
 .title-container {
@@ -13,13 +14,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
-
-.timestamp {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: rgb(231, 157, 157);
-  padding: 0.5rem;
 }
 
 .text {
@@ -32,4 +26,54 @@
   font-size: 2rem;
   color: rgb(82, 90, 117);
   padding: 0.5rem;
+}
+
+.delete-button {
+  position: absolute;
+  left: 80%;
+  background-color: #ff0000;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  color: rgb(134, 0, 0);
+  font-size: 1rem;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+.delete-button:hover {
+  background-color: #d50000;
+  color: #000;
+}
+
+.expand-button {
+  position: absolute;
+  left: 70%;
+  background-color: #128181;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  color: rgb(16, 175, 141);
+  font-size: 1rem;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+.expand-button:hover {
+  background-color: #0d8a7f;
+  color: #000;
+}
+.edit-button {
+  position: absolute;
+  left: 60%;
+  background-color: #128181;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  color: rgb(16, 175, 141);
+  font-size: 1rem;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+.edit-button:hover {
+  background-color: #0d8a7f;
+  color: #000;
 }

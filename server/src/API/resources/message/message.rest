@@ -1,18 +1,18 @@
 
 
 
-GET http://localhost:6000/api/v1/message HTTP/1.1
+GET http://localhost:3000/api/v1/message HTTP/1.1
 ###
 
-GET http://localhost:6000/api/v1/message/3e186fb0-955b-4d71-b88f-6ab7aae54e43 HTTP/1.1
+GET http://localhost:3000/api/v1/message/3e186fb0-955b-4d71-b88f-6ab7aae54e43 HTTP/1.1
 ###
 
 //testing message not found
-GET http://localhost:6000/api/v1/message/hejhej HTTP/1.1
+GET http://localhost:3000/api/v1/message/hejhej HTTP/1.1
 ###
 
 
-POST http://localhost:6000/api/v1/message HTTP/1.1
+POST http://localhost:3000/api/v1/message HTTP/1.1
 content-type: application/json
 
 {
@@ -22,7 +22,7 @@ content-type: application/json
 ###
 
 //Testar joi på post med en felformaterad body
-POST http://localhost:6000/api/v1/message HTTP/1.1
+POST http://localhost:3000/api/v1/message HTTP/1.1
 content-type: application/json
 
 {
@@ -32,7 +32,7 @@ content-type: application/json
 ###
 
 //Testar joi på put med en felformaterad body
-PUT http://localhost:6000/api/v1/message/32e2bf59-ae96-4967-ab05-c7d7f898dbf9 HTTP/1.1
+PUT http://localhost:3000/api/v1/message/32e2bf59-ae96-4967-ab05-c7d7f898dbf9 HTTP/1.1
 content-type: application/json
 
 {
@@ -42,7 +42,7 @@ content-type: application/json
 }
 
 ###
-PUT http://localhost:6000/api/v1/message/bfb1aa45-12c8-473e-8ff1-9a482dcd9738 HTTP/1.1
+PUT http://localhost:3000/api/v1/message/bfb1aa45-12c8-473e-8ff1-9a482dcd9738 HTTP/1.1
 content-type: application/json
 
 {
@@ -51,7 +51,7 @@ content-type: application/json
 }
 
 ###
-DELETE http://localhost:6000/api/v1/message/931c8e54-5884-4dfe-8d5c-7df46f1720d3 HTTP/1.1
+DELETE http://localhost:3000/api/v1/message/c8b7a069-1e9b-4e68-a295-e387fca69597 HTTP/1.1
 ###
 
 

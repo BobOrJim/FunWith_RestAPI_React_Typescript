@@ -24,8 +24,8 @@ export class HttpService {
   }
 
   public startListening() {
-    this.app.listen(6000, () => {
-      console.log("Server is running on: http://localhost:6000");
+    this.app.listen(3000, () => {
+      console.log("Server is running on: http://localhost:3000");
     });
   }
 }

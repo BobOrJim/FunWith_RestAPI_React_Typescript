@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev2": "nodemon --ignore ./src/data/messages.json ./src/startup.ts",
-    "dev": "nodemon ./src/startup.ts",
+    "dev": "nodemon --ignore ./src/data/messages.json ./src/startup.ts",
+    "devOld": "nodemon ./src/startup.ts",
     "build": "tsc",
     "preview": "node ./dist/startup.js"
   },

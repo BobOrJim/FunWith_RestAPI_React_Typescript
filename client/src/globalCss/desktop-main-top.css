@@ -1,16 +1,12 @@
 .desktop-main-top {
-  top: calc(var(--desktop-header-primary-height) + var(--desktop-header-secondary-height));
+  top: 0px; /* calc(var(--desktop-header-primary-height) + var(--desktop-header-secondary-height)); */
   bottom: var(--desktop-main-bottom-height);
   left: calc(var(--desktop-aside-primary-width) + var(--desktop-aside-secondary-width));
-  right: 0;
+  right: 0px;
 
   background-color: lightpink;
-  position: fixed;
-
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  /* position: fixed; */
+  position: absolute;
 
   display: flex;
   flex-direction: column;

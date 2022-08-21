@@ -1,7 +1,7 @@
 .desktop-header-secondary {
   background-color: lightsalmon;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
+  /*border-bottom: 2px solid black;
+  border-right: 2px solid black; */
   height: var(--desktop-header-secondary-height);
   width: calc(100% - var(--desktop-aside-primary-width) - var(--desktop-aside-secondary-width));
   display: flex;

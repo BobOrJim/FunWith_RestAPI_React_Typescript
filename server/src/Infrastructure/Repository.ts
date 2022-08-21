@@ -24,46 +24,67 @@ export const writeStringToFile = async (dataAsString: string): Promise<void> => 
 
 export const seedRepository = async () => {
   writeStringToFile(JSON.stringify(seedData));
-  /*for (const message of seedData) {
-
-  }*/
-  //const dataAsString = await writeStringToFile(JSON.stringify(seedData));
 };
-
-/*
-    let messages: Message[] = JSON.parse(data);
-    let newMessage = buildMessage(uuidv4(), req.body.user, req.body.text);
-    messages.push(newMessage);
-    writeStringToFile(JSON.stringify(messages));
-    res.status(200).json(newMessage);
-  } else {
-    let messages: Message[] = [];
-    let newMessage = buildMessage(uuidv4(), req.body.user, req.body.text);
-    messages.push(newMessage);
-    writeStringToFile(JSON.stringify(messages));
-    res.status(200).json(newMessage);
-  }
-*/
 
 const seedData: Message[] = [
   {
     id: uuidv4(),
-    user: "Django",
+    user: "1 Django",
     text: "The D is silent.",
   },
   {
     id: uuidv4(),
-    user: "Kill Bill",
+    user: "2 Kill Bill",
     text: "Do you find me sadistic?",
   },
   {
     id: uuidv4(),
-    user: "Mr White",
+    user: "3 Mr White",
     text: "Are you gonna bark all day, lil doggie, or are you gonna bite?",
   },
   {
     id: uuidv4(),
-    user: "Mr White",
+    user: "4 Jules",
+    text: "The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness. For he is truly his brother’s keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know my name is the Lord when I lay my vengeance upon you.",
+  },
+  {
+    id: uuidv4(),
+    user: "5 Django",
+    text: "The D is silent.",
+  },
+  {
+    id: uuidv4(),
+    user: "6 Kill Bill",
+    text: "Do you find me sadistic?",
+  },
+  {
+    id: uuidv4(),
+    user: "7 Mr White",
     text: "Are you gonna bark all day, lil doggie, or are you gonna bite?",
+  },
+  {
+    id: uuidv4(),
+    user: "8 Jules",
+    text: "The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness. For he is truly his brother’s keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know my name is the Lord when I lay my vengeance upon you.",
+  },
+  {
+    id: uuidv4(),
+    user: "9 Django",
+    text: "The D is silent.",
+  },
+  {
+    id: uuidv4(),
+    user: "10 Kill Bill",
+    text: "Do you find me sadistic?",
+  },
+  {
+    id: uuidv4(),
+    user: "11 Mr White",
+    text: "Are you gonna bark all day, lil doggie, or are you gonna bite?",
+  },
+  {
+    id: uuidv4(),
+    user: "12 Jules",
+    text: "The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness. For he is truly his brother’s keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know my name is the Lord when I lay my vengeance upon you.",
   },
 ];

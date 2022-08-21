@@ -1,6 +1,10 @@
 export type MessageType = {
-  timeStamp: Date;
+  id: string;
+  user: string;
   text: string;
-  sendingUser: string;
-  destinationRoom: string;
+};
+
+export type MessageDto = {
+  user: string;
+  text: string;
 };
