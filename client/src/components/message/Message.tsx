@@ -27,13 +27,13 @@ export const Message: React.FC<MessageProps> = (props: MessageProps): JSX.Elemen
   return (
     <div className="message-container">
       <button onClick={handleDeleteMessageClick} className="delete-button">
-        X
+        X (Delete endpoint)
       </button>
       <button onClick={handleExpandMessageClick} className="expand-button">
-        expand
+        expand (getById endpoint)
       </button>
       <button onClick={handleEditMessageClick} className="edit-button">
-        edit
+        edit (put endpoint)
       </button>
       <div className="title-container">
         <p className="sending-user">{props.message.user}</p>
