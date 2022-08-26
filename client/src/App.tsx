@@ -13,8 +13,6 @@ import "./globalCss/desktop-main-top.css";
 
 import { getMessagesFromServer, postMessageToServer, deleteMessageFromServer, getMessageByIdFromServer, updateMessageToServer } from "./components/message/Message.api";
 
-//Variables below suck, but so does writing code for school project while having Covid.
-//Next project will be better. :)  I promise :)
 let expandedMessage: MessageType = { id: "0", text: "", user: "" };
 let editedMessage: MessageType = { id: "0", text: "", user: "" };
 
@@ -125,15 +123,26 @@ export const App: React.FC = (): JSX.Element => {
   return (
     <div className="my-global">
       <aside className="desktop-aside-primary">
+        <p>Sorry att jag skippa stylingen, jag o hela familjen sjuka i covid. Tror alla G+VG krav är med iaf </p>
+        <div
+          style={{
+            background: "black",
+            height: "30px",
+          }}
+        />
         {true && (
           <div>
             <p>{expandedMessage.user}</p>
             <p>{expandedMessage.text}</p>
           </div>
         )}
-        <br></br>
-        <br></br>
-        <br></br>
+
+        <div
+          style={{
+            background: "black",
+            height: "30px",
+          }}
+        />
 
         {editMessage && (
           <div>
@@ -154,14 +163,12 @@ export const App: React.FC = (): JSX.Element => {
             </form>
           </div>
         )}
-      </aside>
-      <aside className="desktop-aside-secondary"></aside>
-      <header className="desktop-header-primary"></header>
-      <header className="desktop-header-secondary"></header>
-      <main className="desktop-main-top">
-        <MessageList messages={messages} handleDeleteMessage={handleDeleteMessage} handleExpandMessage={handleExpandMessage} handleEditMessage={handleEditMessage} />
-      </main>
-      <main className="desktop-main-bottom">
+        <div
+          style={{
+            background: "black",
+            height: "30px",
+          }}
+        />
         <label>
           Author:
           <input ref={refUsername} type="text" />
@@ -171,7 +178,14 @@ export const App: React.FC = (): JSX.Element => {
           <input ref={refMessageText} type="text" />
         </label>
         <button onClick={handleAddMessage}>Send (post endpoint)</button>
+      </aside>
+      <aside className="desktop-aside-secondary"></aside>
+      <header className="desktop-header-primary"></header>
+      <header className="desktop-header-secondary"></header>
+      <main className="desktop-main-top">
+        <MessageList messages={messages} handleDeleteMessage={handleDeleteMessage} handleExpandMessage={handleExpandMessage} handleEditMessage={handleEditMessage} />
       </main>
+      <main className="desktop-main-bottom"></main>
     </div>
   );
 };
